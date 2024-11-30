@@ -1,7 +1,8 @@
-package com.melendez.paulo.poketinder
+package com.melendez.paulo.poketinder.data.network
 
 
 
+import com.melendez.paulo.poketinder.data.model.PokemonListResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

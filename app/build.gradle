@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id 'kotlin-kapt'
+
 }
 
 android {
@@ -39,7 +41,7 @@ android {
 }
 
 dependencies {
-
+    // Otras dependencias
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
@@ -52,15 +54,20 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
 
+    // Versión de Room
+    def room_version = "2.6.1"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
     // Retrofit
     implementation "com.google.code.gson:gson:2.8.7"
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-// Card
+
+    // Card
     implementation 'com.github.yuyakaido:cardstackview:2.3.4'
-// Glide
-    implementation "com.github.bumptech.glide:glide:4.12.0"
-    annotationProcessor "com.github.bumptech.glide:compiler:4.12.0"
+
     // Glide
     implementation "com.github.bumptech.glide:glide:4.12.0"
     annotationProcessor "com.github.bumptech.glide:compiler:4.12.0"
@@ -68,4 +75,7 @@ dependencies {
     // AnimationX
     implementation 'com.github.rommansabbir:AnimationX:2.0'
 
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 }
